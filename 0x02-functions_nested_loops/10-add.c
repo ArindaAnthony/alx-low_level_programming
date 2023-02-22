@@ -2,8 +2,7 @@
 /**
  * add - is the main function
  * @m: parameter
- * @n: parameter 
- * Return: sum of two numbers
+ * @n: parameter
  */
 int add(int m, int n)
 {
