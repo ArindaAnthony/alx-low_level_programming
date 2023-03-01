@@ -1,6 +1,7 @@
 #include "main.h"
+
 /**
- * _strncat - this is the main function
+ * _strncpy - this is the main function
  * @dest: parameter
  * @src: parameter
  * @n: parameteur
