@@ -2,7 +2,7 @@
 /**
  * factorial - function
  * @n: parameter
- * @Return: always int
+ * Return: always void
  */
 int factorial(int n)
 {
