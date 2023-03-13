@@ -1,0 +1,11 @@
+#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+/**
+ * _strdup - function
+ * @str: parameter
+ * Return: always char
+ */
+char *_strdup(char *str)
+{
+
