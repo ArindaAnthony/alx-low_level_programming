@@ -25,11 +25,14 @@ int _strlen(char *str)
  */
 char *strcopy(char *dest, char *src)
 {
-	int index = 0;
+	int i;
+	int len = 0;
 
-	for (index; src[index]; index++)
-		dest[index] = src[index];
-	dest[index] = '\0';
+	while (src[len] != '\0')
+		len++;
+	for (i = 0; i < len; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
 	return (dest);
 }
 
@@ -42,28 +45,29 @@ char *strcopy(char *dest, char *src)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *doggo;
+	dog_t *dog;
+	int len1, len2;
 
-	if (name == NULL || age < 0 || owner == NULL)
+	len1 = _strlen(name);
+	len2 = _strlen(owner);
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
 		return (NULL);
-	doggo = malloc(sizeof(dog_t));
-	if (doggo == NULL)
-		return (NULL);
-	doggo->name = malloc(sizeof(char) * (_str(name) + 1));
-	if (doggo->name == NULL)
+	dog->name = malloc(sizeof(char) * (len1 + 1));
+	if (dog->name == NULL)
 	{
-		free(doggo);
+		free(dog);
 		return (NULL);
 	}
-	doggo->owner == malloc(sizeof(char) * (_str(owner) + 1));
-	if (doggo->owner == NULL)
+	dog->owner = malloc(sizeof(char) * (len2 + 1));
+	if (dog->owner == NULL)
 	{
-		free(doggo->name);
-		free(doggo);
+		free(dog);
+		free(dog->name);
 		return (NULL);
 	}
-	doggo->name = strcopy(doggo->name, name);
-	doggo->age = age;
-	doggo->owner = strcopy(doggo->owner, owner);
-	return (doggo);
+	strcopy(dog->name, name);
+	strcopy(dog->owner, owner);
+	dog->age = age;
+	return (dog);
 }
